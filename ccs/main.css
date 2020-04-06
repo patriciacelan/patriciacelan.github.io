@@ -5,3 +5,8 @@
 div#actionbar * {
   display: none;
 }
+
+div#actionbar {
+  display: none;
+}
+
