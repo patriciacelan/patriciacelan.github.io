@@ -1,12 +1,12 @@
 #wpadminbar {
-  display: none;
+  display: none !important;
 }
 
 div#actionbar * {
-  display: none;
+  display: none !important;
 }
 
 div#actionbar {
-  display: none;
+  display: none !important;
 }
 
