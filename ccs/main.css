@@ -1,1 +1,7 @@
+#wpadminbar {
+  display: none;
+}
 
+div#actionbar * {
+  display: none;
+}
