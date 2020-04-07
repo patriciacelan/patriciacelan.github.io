@@ -7,7 +7,7 @@
     margin-top: 40px;
     width: 65px;
     overflow-y: scroll;
-    border-radius: 20px;
+    border-radius: 30px;
 }
 
 .force-overflow {
@@ -16,15 +16,15 @@
 ::-webkit-scrollbar {
     width: 8px;
     background-color: #FFFFFF;
-    border-radius: 20px;
+    border-radius: 30px;
   
 } 
 ::-webkit-scrollbar-thumb {
     background-color: #D8D8D8;
-    border-radius: 20px;
+    border-radius: 30px;
 }
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     background-color: #FFFFFF;
-    border-radius: 20px;
+    border-radius: 30px;
 }
