@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-    background-color: #EFEFEF;
+    background-color: #F7F7F7;
     float: left;
     height: 300px;
     margin-bottom: 25px;
@@ -14,7 +14,7 @@
 }
 ::-webkit-scrollbar {
     width: 10px;
-    background-color: #EFEFEF;
+    background-color: #F7F7F7;
   
 } 
 ::-webkit-scrollbar-thumb {
@@ -23,6 +23,6 @@
 }
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #EFEFEF;
+    background-color: #F7F7F7;
     border-radius: 20px;
 }
