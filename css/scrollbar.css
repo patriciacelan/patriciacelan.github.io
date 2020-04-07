@@ -1,5 +1,5 @@
 .scrollbar {
-    background-color: #FFFFFF;
+    background-color: #9A9A9A;
     float: left;
     height: 300px;
     margin-bottom: 25px;
@@ -14,7 +14,7 @@
 }
 #style-1::-webkit-scrollbar {
     width: 6px;
-    background-color: #FFFFFF;
+    background-color: #9A9A9A;
 } 
 #style-1::-webkit-scrollbar-thumb {
     background-color: #F5F5F5;
@@ -22,6 +22,6 @@
 }
 #style-1::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #FFFFFF;
+    background-color: #9A9A9A;
     border-radius: 20px;
 }
