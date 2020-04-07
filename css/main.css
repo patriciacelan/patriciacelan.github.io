@@ -1,3 +1,6 @@
+.wf-loading body {
+visibility: hidden;
+}
 #wpadminbar {
   display: none !important;
 } 
