@@ -13,8 +13,9 @@
     min-height: 450px;
 }
 #style-1::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
     background-color: #9A9A9A;
+  
 } 
 #style-1::-webkit-scrollbar-thumb {
     background-color: #F5F5F5;
