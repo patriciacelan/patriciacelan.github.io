@@ -1,7 +1,7 @@
 #content-desktop {display: block;}
 #content-mobile {display: none;}
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1100px) {
 
 #content-desktop {display: none;}
 #content-mobile {display: block;}
