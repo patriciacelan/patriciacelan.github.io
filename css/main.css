@@ -65,7 +65,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 
 /* Basic Navbar Styles */
 .navbar {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
