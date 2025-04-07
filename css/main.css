@@ -81,11 +81,12 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 .navbar img {
     width: auto;
     max-width: 40%;
+    height: auto;
 }
 
 .navbar-links {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly; /* Spread links evenly */
     align-items: center;
     flex-grow: 1;
 }
@@ -95,6 +96,11 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     text-decoration: none;
     font-family: 'Lora', serif;
     color: #404040;
+    transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+    color: #007bff; /* Optional hover effect */
 }
 
 .hamburger {
@@ -111,7 +117,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
         flex-direction: column;
         align-items: center;
         position: absolute;
-        top: 60px;
+        top: 60px; /* Adjust to navbar height */
         left: 0;
         background-color: white;
         z-index: 1000;
