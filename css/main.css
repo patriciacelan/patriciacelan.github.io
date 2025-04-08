@@ -125,7 +125,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 /* Mobile Responsiveness */
 @media (max-width: 900px) {
     .navbar {
-        max-height: 150px; /* Adjust based on logo size */
+        max-height: 160px; /* Adjust based on logo size */
     }
 
  .navbar img {
