@@ -90,7 +90,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     width: auto;
     max-width: 40%;
     height: auto;
-    max-height: 100px; /* Ensure logo doesn’t exceed height */
+    max-height: 150px; /* Ensure logo doesn’t exceed height */
 }
 
 .navbar-links {
@@ -101,6 +101,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 }
 
 .navbar-link {
+    font-size: 20px; /* ← Increase this value as desired */
     margin: 0 15px;
     text-decoration: none;
     font-family: 'Lora', serif;
