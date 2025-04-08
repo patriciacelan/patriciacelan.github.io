@@ -1,28 +1,72 @@
-// Toggle mobile menu visibility
-function toggleMenu() {
-    const navbarLinks = document.querySelector('.navbar-links');
-    navbarLinks.classList.toggle('active');
+/* Basic Navbar Styles */
+.navbar {
+    position: relative; /* No longer fixed */
+    width: 100%; /* Make it span the full width */
+    background-color: white;
+    z-index: 999;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 0; /* Ensure no margins cause centering */
 }
 
-// If you want to make the menu clickable even without the hamburger icon, 
-// you can use the following (but typically, it's used for when clicking links too).
-document.querySelectorAll('.navbar-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default link behavior
-        
-        // You can add smooth scroll behavior here
-        const targetId = this.getAttribute('href').substring(1); // Get target section ID
-        const targetSection = document.getElementById(targetId);
+.navbar img {
+    width: auto;
+    max-width: 40%;
+    height: auto;
+}
 
-        // Scroll to the target section
-        window.scrollTo({
-            top: targetSection.offsetTop - 60, // Adjust for navbar height
-            behavior: 'smooth'
-        });
+.navbar-links {
+    display: flex;
+    justify-content: space-evenly; /* Spread links evenly */
+    align-items: center;
+    flex-grow: 1;
+}
 
-        // Close the menu on mobile after clicking
-        if (window.innerWidth <= 768) {
-            toggleMenu();  // Close the menu when a link is clicked
-        }
-    });
-});
+.navbar-link {
+    margin: 0 15px;
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    color: #404040;
+    transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+    color: #007bff; /* Optional hover effect */
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: white;
+        z-index: 1000;
+        padding: 10px 0;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-link {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
