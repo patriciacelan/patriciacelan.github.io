@@ -140,7 +140,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
         flex-direction: column;
         align-items: center;
         position: absolute;
-        top: 160px; /* Adjust to below the logo */
+        top: 150px; /* Adjust to below the logo */
         left: 0;
         background-color: white;
         z-index: 1000;
