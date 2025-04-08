@@ -78,7 +78,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     padding: 10px 20px;
     margin: 0; /* No margin to avoid centering */
     transition: top 0.3s ease-in-out; /* Smooth transition for hide/show */
-    max-height: 150px; /* Adjust based on logo size */
+    max-height: 150px; /* Adjust for the logo size */
     height: auto; /* Allow flexibility in height */
 }
 
@@ -86,7 +86,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     width: auto;
     max-width: 40%;
     height: auto;
-    max-height: 80px; /* Ensure logo doesn’t exceed height */
+    max-height: 100px; /* Ensure logo doesn’t exceed height */
 }
 
 .navbar-links {
@@ -116,13 +116,17 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    .navbar {
+        max-height: 150px; /* Adjust based on logo size */
+    }
+
     .navbar-links {
         display: none;
         width: 100%;
         flex-direction: column;
         align-items: center;
         position: absolute;
-        top: 60px;
+        top: 100px; /* Adjust to below the logo */
         left: 0;
         background-color: white;
         z-index: 1000;
