@@ -5,10 +5,13 @@ window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
+    // Get the height of the navbar (including the logo)
+    const navbarHeight = navbar.offsetHeight;
+
     // Check if user is scrolling down or up
     if (currentScroll > lastScrollTop) {
         // Scrolling down, hide navbar
-        navbar.style.top = "-60px"; // Hide the navbar by moving it up
+        navbar.style.top = `-${navbarHeight}px`; // Hide navbar completely based on height
     } else {
         // Scrolling up, show navbar
         navbar.style.top = "0"; // Bring the navbar back into view
