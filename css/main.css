@@ -88,19 +88,11 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 
 .navbar img {
     width: auto;
-    max-width: 50%;
+    max-width: 40%;
     height: auto;
     max-height: 150px; /* Ensure logo doesn’t exceed height */
     min-height: 100px; /* 👈 same as mobile, to prevent it from shrinking too much */
 
-}
-
-@media (max-width: 768px) {
-    .navbar img {
-        max-width: 60%;     /* allow it to use a bit more space */
-        max-height: 150px;  /* or however big you want */
-        min-height: 100px;   /* prevents shrinking too small */
-    }
 }
 
 .navbar-links {
@@ -136,6 +128,12 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
         max-height: 150px; /* Adjust based on logo size */
     }
 
+ .navbar img {
+        max-width: none;     /* allow it to use a bit more space */
+        max-height: 150px;  /* or however big you want */
+        min-height: 100px;   /* prevents shrinking too small */
+    }
+ 
     .navbar-links {
         display: none;
         width: 100%;
