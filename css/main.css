@@ -91,7 +91,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     max-width: 40%;
     height: auto;
     max-height: 150px; /* Ensure logo doesn’t exceed height */
-    min-height: 70px; /* 👈 same as mobile, to prevent it from shrinking too much */
+    min-height: 100px; /* 👈 same as mobile, to prevent it from shrinking too much */
 
 }
 
@@ -99,7 +99,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     .navbar img {
         max-width: 60%;     /* allow it to use a bit more space */
         max-height: 150px;  /* or however big you want */
-        min-height: 70px;   /* prevents shrinking too small */
+        min-height: 100px;   /* prevents shrinking too small */
     }
 }
 
