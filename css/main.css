@@ -101,7 +101,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 }
 
 .navbar-link {
-    font-size: 18px; /* ← Increase this value as desired */
+    font-size: 16px; /* ← Increase this value as desired */
     font-weight: bold; 
     margin: 0 15px;
     text-decoration: none;
