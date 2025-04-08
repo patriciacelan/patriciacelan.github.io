@@ -65,7 +65,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 
 /* Basic Navbar Styles */
 .entry-content {
-    padding-top: 110px; /* Adjust to match navbar height */
+    padding-top: 160px; /* Adjust to match navbar height */
 }
 
 .navbar {
@@ -82,7 +82,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     padding: 10px 20px;
     margin: 0; /* No margin to avoid centering */
     transition: top 0.3s ease-in-out; /* Smooth transition for hide/show */
-    max-height: 150px; /* Adjust for the logo size */
+    max-height: 160px; /* Adjust for the logo size */
     height: auto; /* Allow flexibility in height */
 }
 
@@ -101,7 +101,8 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 }
 
 .navbar-link {
-    font-size: 20px; /* ← Increase this value as desired */
+    font-size: 18px; /* ← Increase this value as desired */
+    font-weight: bold; 
     margin: 0 15px;
     text-decoration: none;
     font-family: 'Lora', serif;
