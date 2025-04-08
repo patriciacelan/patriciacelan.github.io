@@ -1,72 +1,47 @@
-/* Basic Navbar Styles */
-.navbar {
-    position: relative; /* No longer fixed */
-    width: 100%; /* Make it span the full width */
-    background-color: white;
-    z-index: 999;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    margin: 0; /* Ensure no margins cause centering */
-}
+// Scroll Hide/Show Navbar on Scroll
+let lastScrollTop = 0; // Keep track of the last scroll position
 
-.navbar img {
-    width: auto;
-    max-width: 40%;
-    height: auto;
-}
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-.navbar-links {
-    display: flex;
-    justify-content: space-evenly; /* Spread links evenly */
-    align-items: center;
-    flex-grow: 1;
-}
-
-.navbar-link {
-    margin: 0 15px;
-    text-decoration: none;
-    font-family: 'Lora', serif;
-    color: #404040;
-    transition: color 0.3s ease;
-}
-
-.navbar-link:hover {
-    color: #007bff; /* Optional hover effect */
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-    font-size: 30px;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .navbar-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: white;
-        z-index: 1000;
-        padding: 10px 0;
+    // Check if user is scrolling down or up
+    if (currentScroll > lastScrollTop) {
+        // Scrolling down, hide navbar
+        navbar.style.top = "-60px"; // Hide the navbar by moving it up
+    } else {
+        // Scrolling up, show navbar
+        navbar.style.top = "0"; // Bring the navbar back into view
     }
 
-    .navbar-links.active {
-        display: flex;
-    }
+    // Update last scroll position
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+}, false);
 
-    .navbar-link {
-        margin: 10px 0;
-    }
-
-    .hamburger {
-        display: block;
-    }
+// Toggle mobile menu visibility
+function toggleMenu() {
+    const navbarLinks = document.querySelector('.navbar-links');
+    navbarLinks.classList.toggle('active');
 }
+
+// Smooth Scroll and Close Menu on Click (for mobile)
+document.querySelectorAll('.navbar-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default link behavior
+        
+        // You can add smooth scroll behavior here
+        const targetId = this.getAttribute('href').substring(1); // Get target section ID
+        const targetSection = document.getElementById(targetId);
+
+        // Scroll to the target section
+        window.scrollTo({
+            top: targetSection.offsetTop - 60, // Adjust for navbar height
+            behavior: 'smooth'
+        });
+
+        // Close the menu on mobile after clicking
+        if (window.innerWidth <= 768) {
+            toggleMenu();  // Close the menu when a link is clicked
+        }
+    });
+});
