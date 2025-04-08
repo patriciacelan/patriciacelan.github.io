@@ -78,12 +78,15 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     padding: 10px 20px;
     margin: 0; /* No margin to avoid centering */
     transition: top 0.3s ease-in-out; /* Smooth transition for hide/show */
+    max-height: 150px; /* Adjust based on logo size */
+    height: auto; /* Allow flexibility in height */
 }
 
 .navbar img {
     width: auto;
     max-width: 40%;
     height: auto;
+    max-height: 80px; /* Ensure logo doesn’t exceed height */
 }
 
 .navbar-links {
