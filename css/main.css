@@ -93,6 +93,11 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     max-height: 150px; /* Ensure logo doesn’t exceed height */
 }
 
+@media (max-width: 768px) {
+    .navbar img {
+        max-height: 150px; /* Increase this value to make the logo bigger */
+    }
+}
 .navbar-links {
     display: flex;
     justify-content: space-evenly; /* Spread links evenly */
