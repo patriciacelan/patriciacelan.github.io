@@ -159,3 +159,22 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
         display: block;
     }
 }
+
+.logo-link {
+  display: block;
+  height: 100%;
+}
+
+.logo-link img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+  min-height: 100px;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
