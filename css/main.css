@@ -147,12 +147,12 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
         max-height: 160px; /* Adjust based on logo size */
     }
 
- .navbar img {
+    .navbar img {
         max-width: 90%;     /* allow it to use a bit more space */
         max-height: 150px;  /* or however big you want */
         min-height: 100px;   /* prevents shrinking too small */
     }
- 
+
     .navbar-links {
         display: none;
         width: 100%;
@@ -178,29 +178,44 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
         display: block;
     }
 
- .logo-link {
-  display: block;
-  height: 100%;
+    /* Adjust the dropdown in mobile to be centered and show up on click */
+    .dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-title {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+    }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        min-width: 100%;
+        background-color: white;
+        display: none;
+        flex-direction: column;
+    }
+
+    .dropdown-content a {
+        width: 100%;
+        text-align: center;
+        padding: 8px 0; /* Reduced padding for less spacing */
+        font-size: 14px; /* Smaller font size */
+        border-top: 1px solid #eee;
+    }
+
+    .dropdown-content.show {
+        display: flex;
+    }
+
+    /* Preventing hover behavior on mobile */
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
 }
-
-.logo-link img {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 150px;
-  min-height: 100px;
-}
-
-.logo-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-}
-
-
-
 
 /* Dropdown Container */
 .dropdown {
@@ -250,44 +265,4 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 
 .dropdown-content a:hover {
     background-color: #f0f0f0;
-}
-
-/* 🔽 MOBILE STYLES */
-@media (max-width: 900px) {
-    .dropdown {
-        width: 100%;
-    }
-
-    .dropdown-title {
-        width: 100%;
-        text-align: center;
-        padding: 12px 0;
-    }
-
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        min-width: 100%;
-        background-color: white;
-        display: none;
-        flex-direction: column;
-    }
-
-    /* Adjusted spacing and smaller font size */
-    .dropdown-content a {
-        width: 100%;
-        text-align: center;
-        padding: 8px 0; /* Reduced padding for less spacing */
-        font-size: 14px; /* Smaller font size */
-        border-top: 1px solid #eee;
-    }
-
-    .dropdown-content.show {
-        display: flex;
-    }
-
-    /* Preventing the hover behavior on mobile */
-    .dropdown:hover .dropdown-content {
-        display: none;
-    }
 }
