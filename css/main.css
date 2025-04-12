@@ -92,6 +92,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     height: auto;
     max-height: 150px; /* Ensure logo doesn’t exceed height */
     min-height: 100px; /* 👈 same as mobile, to prevent it from shrinking too much */
+
 }
 
 .navbar-links {
@@ -121,18 +122,37 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     font-size: 30px;
 }
 
+.logo-link {
+  display: block;
+  height: 100%;
+}
+
+.logo-link img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+  min-height: 100px;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 900px) {
     .navbar {
         max-height: 160px; /* Adjust based on logo size */
     }
 
-    .navbar img {
-        max-width: 90%; /* Allow it to use a bit more space */
-        max-height: 150px; /* Or however big you want */
-        min-height: 100px; /* Prevents shrinking too small */
+ .navbar img {
+        max-width: 90%;     /* allow it to use a bit more space */
+        max-height: 150px;  /* or however big you want */
+        min-height: 100px;   /* prevents shrinking too small */
     }
-
+ 
     .navbar-links {
         display: none;
         width: 100%;
@@ -158,78 +178,23 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
         display: block;
     }
 
-    /* Adjust logo link and image */
-    .logo-link {
-        display: block;
-        height: 100%;
-    }
-
-    .logo-link img {
-        display: block;
-        width: auto;
-        max-width: 100%;
-        height: auto;
-        max-height: 150px;
-        min-height: 100px;
-    }
-
-    .logo-link {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    /* Dropdown Container */
-    .dropdown {
-        position: relative;
-        width: 100%;
-    }
-
-    /* Dropdown Title (Not a link) */
-    .dropdown-title {
-        font-size: 16px;
-        font-weight: bold;
-        margin: 0 15px;
-        font-family: 'Lora', serif;
-        color: #404040;
-        cursor: pointer;
-        user-select: none;
-        padding: 12px 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    /* Dropdown Content (initially hidden) */
-    .dropdown-content {
-        display: none;
-        position: static;
-        background-color: white;
-        box-shadow: none;
-        min-width: 100%;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    /* Dropdown links - smaller font and closer spacing */
-    .dropdown-content a {
-        text-decoration: none;
-        color: #404040;
-        padding: 8px 0; /* Reduced padding for less spacing */
-        font-size: 14px; /* Smaller font size */
-        border-top: 1px solid #eee;
-        text-align: center;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #f0f0f0;
-    }
-
-    .dropdown.show .dropdown-content {
-        display: flex;
-    }
-
-    /* Preventing the hover behavior on mobile */
-    .dropdown:hover .dropdown-content {
-        display: none;
-    }
+ .logo-link {
+  display: block;
+  height: 100%;
 }
- 
+
+.logo-link img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+  min-height: 100px;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+}
