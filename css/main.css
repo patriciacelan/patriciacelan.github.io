@@ -285,4 +285,9 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     .dropdown-content.show {
         display: flex;
     }
+
+    /* Preventing the hover behavior on mobile */
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
 }
