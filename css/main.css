@@ -199,13 +199,24 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 
 }
 
-/* Dropdown container */
+/* Dropdown Container */
 .dropdown {
     position: relative;
-    display: inline-block;
 }
 
-/* Dropdown menu hidden by default */
+/* Dropdown Title (Not a link) */
+.dropdown-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 15px;
+    font-family: 'Lora', serif;
+    color: #404040;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px 0;
+}
+
+/* Dropdown Content */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -213,44 +224,60 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     left: 0;
     background-color: white;
     min-width: 160px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 1000;
     flex-direction: column;
-    padding: 10px 0;
 }
 
-/* Desktop hover support */
-@media (min-width: 901px) {
-    .dropdown:hover .dropdown-content {
-        display: flex;
-    }
-}
-
-/* Mobile tap support */
-.dropdown.open .dropdown-content {
+/* Desktop hover behavior */
+.dropdown:hover .dropdown-content {
     display: flex;
 }
 
-/* Dropdown items */
+/* Dropdown links */
 .dropdown-content a {
-    padding: 10px 20px;
     text-decoration: none;
     color: #404040;
+    padding: 10px 15px;
+    font-family: 'Lora', serif;
+    font-size: 16px;
     white-space: nowrap;
+    transition: background-color 0.2s;
 }
 
 .dropdown-content a:hover {
-    background-color: #f5f5f5;
+    background-color: #f0f0f0;
 }
 
-.navbar-link,
-.dropdown-title {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0 15px;
-    text-decoration: none;
-    font-family: 'Lora', serif;
-    color: #404040;
-    transition: color 0.3s ease;
-    cursor: pointer; /* makes dropdown titles feel clickable */
+/* 🔽 MOBILE STYLES */
+@media (max-width: 900px) {
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropdown-title {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+    }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        min-width: 100%;
+        background-color: white;
+        display: none;
+        flex-direction: column;
+    }
+
+    .dropdown-content a {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #eee;
+        padding: 10px 0;
+    }
+
+    .dropdown-content.show {
+        display: flex;
+    }
 }
