@@ -48,3 +48,16 @@ document.querySelectorAll('.navbar-link').forEach(link => {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdownTitles = document.querySelectorAll(".dropdown-title");
+
+  dropdownTitles.forEach(title => {
+    title.addEventListener("click", function (e) {
+      // Toggle the dropdown for mobile
+      const dropdown = this.nextElementSibling;
+      dropdown.classList.toggle("show");
+    });
+  });
+});
+
