@@ -61,3 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+function toggleDropdown(element) {
+    const dropdown = element.parentElement;
+    dropdown.classList.toggle("open");
+
+    // Optional: Close other open dropdowns
+    document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) {
+            d.classList.remove('open');
+        }
+    });
+}
+
+
