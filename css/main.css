@@ -199,65 +199,46 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 
 }
 
+/* Dropdown container */
 .dropdown {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
-.dropdown-title {
-  cursor: default;
-  font-weight: bold;
-  padding: 0 15px;
-  user-select: none;
-}
-
+/* Dropdown menu hidden by default */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 180px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1001;
-  top: 100%; /* shows dropdown right below the item */
-  left: 0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    flex-direction: column;
+    padding: 10px 0;
 }
 
+/* Desktop hover support */
+@media (min-width: 901px) {
+    .dropdown:hover .dropdown-content {
+        display: flex;
+    }
+}
+
+/* Mobile tap support */
+.dropdown.open .dropdown-content {
+    display: flex;
+}
+
+/* Dropdown items */
 .dropdown-content a {
-  padding: 10px 15px;
-  text-align: left;
-  text-decoration: none;
-  display: block;
-  white-space: nowrap;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #404040;
+    white-space: nowrap;
 }
 
 .dropdown-content a:hover {
-  background-color: #f0f0f0;
-}
-
-.dropdown:hover .dropdown-content {
-  display: flex;
-}
-
-/* Mobile: Show dropdowns on tap */
-@media (max-width: 900px) {
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
-  }
- 
-@media (max-width: 900px) {
-  .dropdown-content {
-    display: none;
-    flex-direction: column;
-  }
-
-  .dropdown-content.show {
-    display: flex;
-  }
-}
+    background-color: #f5f5f5;
 }
