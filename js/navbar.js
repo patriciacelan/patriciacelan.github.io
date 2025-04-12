@@ -59,4 +59,3 @@ dropdownTitles.forEach(title => {
     });
 });
 
-
