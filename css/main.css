@@ -199,6 +199,9 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 
 }
 
+
+
+
 /* Dropdown Container */
 .dropdown {
     position: relative;
@@ -270,11 +273,13 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
         flex-direction: column;
     }
 
+    /* Adjusted spacing and smaller font size */
     .dropdown-content a {
         width: 100%;
         text-align: center;
+        padding: 8px 0; /* Reduced padding for less spacing */
+        font-size: 14px; /* Smaller font size */
         border-top: 1px solid #eee;
-        padding: 10px 0;
     }
 
     .dropdown-content.show {
