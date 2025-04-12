@@ -48,22 +48,3 @@ document.querySelectorAll('.navbar-link').forEach(link => {
         }
     });
 });
-
-// Function to toggle the visibility of the dropdown content on click for mobile
-const dropdownTitles = document.querySelectorAll('.dropdown-title');
-
-dropdownTitles.forEach(title => {
-    title.addEventListener('click', function() {
-        const dropdownContent = this.nextElementSibling;  // .dropdown-content
-        dropdownContent.classList.toggle('show');  // Show or hide the dropdown
-    });
-});
-
-// Function to handle the hamburger menu (for mobile)
-const hamburger = document.querySelector('.hamburger');
-const navbarLinks = document.querySelector('.navbar-links');
-
-hamburger.addEventListener('click', () => {
-    navbarLinks.classList.toggle('active');
-});
-
