@@ -224,10 +224,12 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     top: 100%;
     left: 0;
     background-color: white;
-    min-width: 200px;
+    width: auto;              /* 👈 auto size */
+    padding: 8px 12px;        /* 👈 nice padding */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     flex-direction: column;
+    white-space: nowrap;      /* 👈 prevents wrapping and keeps it tight */
 }
 
 /* Show on hover (desktop only) */
@@ -263,6 +265,8 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
     .dropdown-content a {
         font-size: 14px;
         margin: 5px 0;
+        text-align: center;
+        width: 100%;
     }
 
     .dropdown-title {
