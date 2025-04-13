@@ -163,7 +163,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
         left: 0;
         background-color: white;
         z-index: 1000;
-        padding: 5px 0 15px 0;
+        padding: 1px 0 15px 0;
     }
 
     .navbar-links.active {
