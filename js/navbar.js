@@ -26,21 +26,12 @@ window.addEventListener('scroll', function () {
 function toggleMenu() {
     const navbarLinks = document.querySelector('.navbar-links');
     navbarLinks.classList.toggle('active');
+    updateNavbarLinksPosition(); // Ensure position is updated when opened
 }
 
 // === Close mobile menu when link is clicked ===
 document.querySelectorAll('.navbar-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-        // Optional smooth scroll if you're targeting section IDs
-        // You can uncomment and adjust this if needed
-        // e.preventDefault();
-        // const targetId = this.getAttribute('href').substring(1);
-        // const targetSection = document.getElementById(targetId);
-        // window.scrollTo({
-        //     top: targetSection.offsetTop - 60,
-        //     behavior: 'smooth'
-        // });
-
+    link.addEventListener('click', function () {
         if (window.innerWidth <= 900) {
             const navbarLinks = document.querySelector('.navbar-links');
             navbarLinks.classList.remove('active');
@@ -62,4 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    updateNavbarLinksPosition(); // Set position on initial load
 });
+
+// === Dynamically adjust mobile dropdown position ===
+function updateNavbarLinksPosition() {
+    const navbar = document.querySelector('.navbar');
+    const navbarLinks = document.querySelector('.navbar-links');
+
+    if (window.innerWidth <= 900 && navbar && navbarLinks) {
+        const navbarHeight = navbar.offsetHeight;
+        navbarLinks.style.top = navbarHeight + 'px';
+    } else {
+        navbarLinks.style.top = ''; // Reset on desktop
+    }
+}
+
+window.addEventListener('resize', updateNavbarLinksPosition);
