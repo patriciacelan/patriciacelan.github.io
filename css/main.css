@@ -168,7 +168,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
 
     .navbar-links.active {
         display: flex;
-        border-bottom: 1px solid #404040;
+        border-bottom: 1px solid #007bff;
     }
 
     .navbar-link {
