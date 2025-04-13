@@ -49,6 +49,21 @@ document.querySelectorAll('.navbar-link').forEach(link => {
     });
 });
 
+// Close mobile nav on scroll
+let lastScrollTop = 0;
+window.addEventListener('scroll', function () {
+    if (window.innerWidth <= 900) {
+        const navbarLinks = document.querySelector('.navbar-links');
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        // If scrolling down and menu is open
+        if (currentScrollTop > lastScrollTop && navbarLinks.classList.contains('active')) {
+            navbarLinks.classList.remove('active');
+        }
+
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+    }
+});
 
 
 
@@ -75,3 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+
