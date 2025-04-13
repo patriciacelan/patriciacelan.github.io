@@ -258,8 +258,7 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
         top: 0;
         box-shadow: none;
         background-color: transparent;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 2px 10px 10px 10px;
     }
 
     .dropdown-content.mobile-active {
