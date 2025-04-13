@@ -158,8 +158,8 @@ img.wp-smiley{border:none !important;box-shadow:none !important;height:1em !impo
         width: 100%;
         flex-direction: column;
         align-items: center;
-        position: absolute;
-        top: 150px; /* Adjust to below the logo */
+        position: fixed;
+        top: 0; /* Placeholder - will be dynamically updated */
         left: 0;
         background-color: white;
         z-index: 1000;
