@@ -1,81 +1,54 @@
-// Scroll Hide/Show Navbar on Scroll
-let lastScrollTop = 0; // Keep track of the last scroll position
+// === Scroll Hide/Show Navbar on Scroll (Desktop & Mobile) ===
+let lastScrollTop = 0;
 
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
+    const navbarLinks = document.querySelector('.navbar-links');
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
     // Get the height of the navbar (including the logo)
     const navbarHeight = navbar.offsetHeight;
 
-    // Check if user is scrolling down or up
+    // Hide/show the navbar based on scroll direction
     if (currentScroll > lastScrollTop) {
-        // Scrolling down, hide navbar
-        navbar.style.top = `-${navbarHeight}px`; // Hide navbar completely based on height
+        navbar.style.top = `-${navbarHeight}px`; // Scroll down = hide
+        if (window.innerWidth <= 900 && navbarLinks.classList.contains('active')) {
+            navbarLinks.classList.remove('active'); // Close mobile menu on scroll
+        }
     } else {
-        // Scrolling up, show navbar
-        navbar.style.top = "0"; // Bring the navbar back into view
+        navbar.style.top = "0"; // Scroll up = show
     }
 
-    // Update last scroll position
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 }, false);
 
-// Toggle mobile menu visibility
+// === Toggle mobile menu visibility ===
 function toggleMenu() {
     const navbarLinks = document.querySelector('.navbar-links');
     navbarLinks.classList.toggle('active');
 }
 
-// Smooth Scroll and Close Menu on Click (for mobile)
+// === Close mobile menu when link is clicked ===
 document.querySelectorAll('.navbar-link').forEach(link => {
     link.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default link behavior
-        
-        // You can add smooth scroll behavior here
-        const targetId = this.getAttribute('href').substring(1); // Get target section ID
-        const targetSection = document.getElementById(targetId);
+        // Optional smooth scroll if you're targeting section IDs
+        // You can uncomment and adjust this if needed
+        // e.preventDefault();
+        // const targetId = this.getAttribute('href').substring(1);
+        // const targetSection = document.getElementById(targetId);
+        // window.scrollTo({
+        //     top: targetSection.offsetTop - 60,
+        //     behavior: 'smooth'
+        // });
 
-        // Scroll to the target section
-        window.scrollTo({
-            top: targetSection.offsetTop - 60, // Adjust for navbar height
-            behavior: 'smooth'
-        });
-
-        // Close the menu on mobile after clicking
-        if (window.innerWidth <= 768) {
-            toggleMenu();  // Close the menu when a link is clicked
+        if (window.innerWidth <= 900) {
+            const navbarLinks = document.querySelector('.navbar-links');
+            navbarLinks.classList.remove('active');
         }
     });
 });
 
-// Close mobile nav on scroll
-let lastScrollTop = 0;
-window.addEventListener('scroll', function () {
-    if (window.innerWidth <= 900) {
-        const navbarLinks = document.querySelector('.navbar-links');
-        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        // If scrolling down and menu is open
-        if (currentScrollTop > lastScrollTop && navbarLinks.classList.contains('active')) {
-            navbarLinks.classList.remove('active');
-        }
-
-        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-    }
-});
-
-
-
-
-
-
-function toggleMenu() {
-    const links = document.querySelector('.navbar-links');
-    links.classList.toggle('active');
-}
-
-// Mobile dropdown toggle
+// === Enable mobile dropdown toggle ===
 document.addEventListener('DOMContentLoaded', () => {
     const dropdowns = document.querySelectorAll('.dropdown');
 
@@ -90,6 +63,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-
-
