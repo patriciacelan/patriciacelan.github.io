@@ -1,46 +1,51 @@
 // === Scroll Hide/Show Navbar on Scroll (Desktop & Mobile) ===
 let lastScrollTop = 0;
+let isScrollingMenu = false;
 
-window.addEventListener('scroll', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('.navbar');
     const navbarLinks = document.querySelector('.navbar-links');
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    // Get the height of the navbar (including the logo)
-    const navbarHeight = navbar.offsetHeight;
+    // === Detect scroll inside the mobile menu ===
+    if (navbarLinks) {
+        navbarLinks.addEventListener('scroll', () => {
+            isScrollingMenu = true;
 
-    // Hide/show the navbar based on scroll direction
-    if (currentScroll > lastScrollTop) {
-        navbar.style.top = `-${navbarHeight}px`; // Scroll down = hide
-        if (window.innerWidth <= 900 && navbarLinks.classList.contains('active')) {
-            navbarLinks.classList.remove('active'); // Close mobile menu on scroll
-        }
-    } else {
-        navbar.style.top = "0"; // Scroll up = show
+            // Reset scroll flag after short delay
+            clearTimeout(navbarLinks.scrollTimeout);
+            navbarLinks.scrollTimeout = setTimeout(() => {
+                isScrollingMenu = false;
+            }, 150);
+        });
     }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-}, false);
+    // === Scroll listener for page scroll ===
+    window.addEventListener('scroll', function () {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        const navbarHeight = navbar.offsetHeight;
 
-// === Toggle mobile menu visibility ===
-function toggleMenu() {
-    const navbarLinks = document.querySelector('.navbar-links');
-    navbarLinks.classList.toggle('active');
-    updateNavbarLinksPosition(); // Ensure position is updated when opened
-}
-
-// === Close mobile menu when link is clicked ===
-document.querySelectorAll('.navbar-link').forEach(link => {
-    link.addEventListener('click', function () {
-        if (window.innerWidth <= 900) {
-            const navbarLinks = document.querySelector('.navbar-links');
-            navbarLinks.classList.remove('active');
+        // If mobile menu is open and user is scrolling inside it — do nothing
+        if (window.innerWidth <= 900 && navbarLinks.classList.contains('active') && isScrollingMenu) {
+            return;
         }
-    });
-});
 
-// === Enable mobile dropdown toggle ===
-document.addEventListener('DOMContentLoaded', () => {
+        if (currentScroll > lastScrollTop) {
+            navbar.style.top = `-${navbarHeight}px`; // Scroll down = hide
+
+            // Close mobile menu on actual page scroll
+            if (window.innerWidth <= 900 && navbarLinks.classList.contains('active')) {
+                navbarLinks.classList.remove('active');
+            }
+        } else {
+            navbar.style.top = "0"; // Scroll up = show
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+
+    updateNavbarLinksPosition(); // Set position on initial load
+
+    // === Enable mobile dropdown toggle ===
     const dropdowns = document.querySelectorAll('.dropdown');
 
     dropdowns.forEach(dropdown => {
@@ -53,8 +58,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+});
 
-    updateNavbarLinksPosition(); // Set position on initial load
+// === Toggle mobile menu visibility ===
+function toggleMenu() {
+    const navbarLinks = document.querySelector('.navbar-links');
+    navbarLinks.classList.toggle('active');
+    updateNavbarLinksPosition(); // Ensure position is updated when opened
+}
+
+// === Close mobile menu when a link is clicked ===
+document.querySelectorAll('.navbar-link').forEach(link => {
+    link.addEventListener('click', function () {
+        if (window.innerWidth <= 900) {
+            const navbarLinks = document.querySelector('.navbar-links');
+            navbarLinks.classList.remove('active');
+        }
+    });
 });
 
 // === Dynamically adjust mobile dropdown position ===
