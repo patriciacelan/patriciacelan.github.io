@@ -147,6 +147,32 @@ input, textarea, select {
   .wp-block-column:not(:first-child) { margin-left: 32px; }
 }
 
+/* ---- Shared footer (assets/footer.html) ----
+   Margins here are deliberately equal on the social-icon row and
+   the About/Contact line so they collapse evenly against the
+   dividers above and below them — that's what gives the original,
+   even top/bottom spacing around the social icons. */
+.footer-social {
+  text-align: center;
+  margin: 1.75em 0;
+}
+.footer-social a { margin-right: 10px; }
+.footer-social a:last-child { margin-right: 0; }
+
+.footer-links {
+  text-align: center;
+  font-size: .85em;
+  margin: 1.75em 0;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 9.8px;
+  font-family: "Lora", serif;
+  color: #404040;
+  margin-top: 1.75em;
+}
+
 /* ---- Responsive site width (matches the original theme's breakpoints,
    so the page keeps its current centered-column look) ---- */
 @media screen and (min-width: 880px) {
