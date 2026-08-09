@@ -129,9 +129,12 @@ input, textarea, select {
    every other <hr> on the site. */
 .styled-hr { border: 0; }
 
-/* Profile / section photos */
+/* Profile / section photos.
+   These use the same 739px "large" size WordPress generated for them;
+   the explicit max-width here makes that size deterministic instead
+   of leaning on the img's srcset/sizes attributes alone. */
 .wp-block-image { margin-bottom: 1em; }
-.wp-block-image img { max-width: 100%; }
+.wp-block-image img { width: 100%; max-width: 739px; height: auto; }
 
 /* Simple responsive column layout (Wellness Education page) */
 .wp-block-columns {
@@ -152,6 +155,7 @@ input, textarea, select {
    so the page keeps its current centered-column look) ---- */
 @media screen and (min-width: 880px) {
   .site { width: 800px; }
+  .entry-content { width: 68%; margin-left: auto; margin-right: auto; }
 }
 @media screen and (min-width: 1120px) {
   .site { width: 992px; }
