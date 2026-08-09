@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="fonts-loading">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,16 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+<script>
+  (function () {
+    function reveal() { document.documentElement.classList.remove('fonts-loading'); }
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(reveal); }
+    else { reveal(); }
+    setTimeout(reveal, 2000);
+  })();
+</script>
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161946718-7"></script>
