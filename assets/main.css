@@ -6,7 +6,7 @@ html { -webkit-text-size-adjust: 100%; }
 /* Hides the page until the custom fonts are ready, replacing the old
    webfont.js "wf-loading" mechanism with ~10 lines of modern JS
    (see the inline script in each page's <head>) instead of a whole
-   vendor library. Falls back to visibles after 1s either way, so a
+   vendor library. Falls back to visible after 1s either way, so a
    slow/failed font load never leaves the page permanently blank. */
 html.fonts-loading { visibility: hidden; }
 
@@ -146,6 +146,13 @@ input, textarea, select {
   font-family: "Raleway", arial, sans-serif;
   font-size: 20px;
   color: #000;
+}
+
+/* Only fires when a subtitle directly follows a title (Animal Rights
+   is the only page with both) — pulls it closer without touching
+   .page-title's own margin, which every other page relies on. */
+.page-title + .page-subtitle {
+  margin-top: -15px;
 }
 
 /* ---- Utility classes ----
