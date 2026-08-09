@@ -1,1 +1,161 @@
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; }
 
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #404040;
+  font-family: "Lora", serif;
+  font-size: 12.6px;
+  line-height: 1.75;
+  word-wrap: break-word;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+  display: block;
+}
+
+img { max-width: 100%; height: auto; border: 0; }
+figure { margin: 1em 0; }
+
+hr {
+  background-color: #404040;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.75em;
+}
+
+table { border-collapse: collapse; width: 100%; margin: 0 0 1.75em; }
+td, th { padding: 3px; }
+
+ul, ol { margin: 0 0 1.75em; padding-left: 1.75em; }
+ul { list-style: disc; }
+ol { list-style: decimal; }
+
+ul, li {
+  font-family: "Lora", serif;
+  font-size: 12.6px;
+  color: #404040;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  margin: 0 0 .875em;
+}
+
+p { margin: 0 0 1.75em; }
+
+b, strong { font-weight: 700; }
+i, em, dfn, cite { font-style: italic; }
+
+/* ---- Links ----
+   Folded in from the old per-page "jetpack-custom-fonts-css"
+   inline style block, which every page repeated individually. */
+a {
+  color: #9a9a9a;
+  text-decoration: none;
+  border: none;
+  box-shadow: none;
+  transition: opacity .2s ease;
+}
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  opacity: .3;
+}
+
+/* ---- Forms (contact page's embedded Google Form sits in an iframe,
+   but keep this in case any native form fields are ever added) ---- */
+input, textarea, select {
+  background-color: #fff;
+  font-family: inherit;
+}
+
+/* ---- Page layout ---- */
+.site-wrapper { overflow-x: hidden; }
+
+.site {
+  margin: 0 auto;
+  padding: 0 1.75em;
+}
+
+.site-branding { max-width: 70%; }
+
+/* The visible logo + menu now live in navbar.html, so the
+   original text title/description are kept for SEO/screen
+   readers only and are visually hidden. */
+.site-title, .site-description {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Clears the fixed navbar injected by navbar.js */
+.entry-content { padding-top: 160px; }
+
+/* ---- Utility classes ----
+   .spacer used to be redeclared with a <style> block on almost
+   every page — now it just lives here once. */
+.spacer { height: 60px; }
+
+.has-text-align-center,
+.text-center {
+  text-align: center;
+  color: #404040;
+  font-size: 14px;
+  font-family: "Lora", serif;
+}
+
+/* Short, centered divider (used just above the footer social icons) */
+.wp-block-separator {
+  border: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100px;
+}
+
+/* Full-width section dividers — width is set per-instance inline
+   (style="width:100%"), this just gives them the same 1px look as
+   every other <hr> on the site. */
+.styled-hr { border: 0; }
+
+/* Profile / section photos */
+.wp-block-image { margin-bottom: 1em; }
+.wp-block-image img { max-width: 100%; }
+
+/* Simple responsive column layout (Wellness Education page) */
+.wp-block-columns {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.wp-block-column {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+@media (min-width: 600px) {
+  .wp-block-column { flex-basis: 0; flex-grow: 1; }
+  .wp-block-column:not(:first-child) { margin-left: 32px; }
+}
+
+/* ---- Responsive site width (matches the original theme's breakpoints,
+   so the page keeps its current centered-column look) ---- */
+@media screen and (min-width: 880px) {
+  .site { width: 800px; }
+}
+@media screen and (min-width: 1120px) {
+  .site { width: 992px; }
+}
+@media screen and (min-width: 1280px) {
+  .site { width: 1088px; }
+}
+
+/* ---- Desktop / mobile content swap (kept for any page using it) ---- */
+#content-desktop { display: block; }
+#content-mobile { display: none; }
+@media screen and (max-width: 1279px) {
+  #content-desktop { display: none; }
+  #content-mobile { display: block; }
+}
