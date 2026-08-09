@@ -6,7 +6,7 @@ html { -webkit-text-size-adjust: 100%; }
 /* Hides the page until the custom fonts are ready, replacing the old
    webfont.js "wf-loading" mechanism with ~10 lines of modern JS
    (see the inline script in each page's <head>) instead of a whole
-   vendor library. Falls back to visibles after 1s either way, so a
+   vendor library. Falls back to visible after 1s either way, so a
    slow/failed font load never leaves the page permanently blank. */
 html.fonts-loading { visibility: hidden; }
 
@@ -187,6 +187,11 @@ input, textarea, select {
    of leaning on the img's srcset/sizes attributes alone. */
 .wp-block-image { margin: 0; }
 .wp-block-image img { display: block; width: 100%; max-width: 739px; height: auto; }
+
+/* Solo images inside table cells (used throughout Pageantry/Advocacy's
+   multi-column sections) get the same inline-baseline-gap fix, since
+   each cell here always holds exactly one image, never a row of them. */
+td img { display: block; margin: 0 auto; }
 
 /* Simple responsive column layout (Wellness Education page) */
 .wp-block-columns {
