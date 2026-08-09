@@ -6,7 +6,7 @@ html { -webkit-text-size-adjust: 100%; }
 /* Hides the page until the custom fonts are ready, replacing the old
    webfont.js "wf-loading" mechanism with ~10 lines of modern JS
    (see the inline script in each page's <head>) instead of a whole
-   vendor library. Falls back to visible after 1ss either way, so a
+   vendor library. Falls back to visible after 1s either way, so a
    slow/failed font load never leaves the page permanently blank. */
 html.fonts-loading { visibility: hidden; }
 
@@ -115,6 +115,21 @@ input, textarea, select {
   max-width: 739px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* ---- Page title header ----
+   Used on every content page as <h1 class="page-title">Name</h1>.
+   Tune spacing here once and it applies everywhere — no more
+   per-page <br>/spacer-div hacks. */
+.page-title {
+  margin: 40px 0 20px;
+  text-align: center;
+  font-family: "Sacramento", serif, system-ui;
+  font-size: 48px;
+  font-weight: normal;
+  color: #000;
+  white-space: nowrap;
+  line-height: 45px;
 }
 
 /* ---- Utility classes ----
