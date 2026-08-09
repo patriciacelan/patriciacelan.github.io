@@ -109,47 +109,17 @@ Contact Dr. Patricia Celan below for content suggestions, requests, and media co
 </center>
 
 </div><!-- .entry-content -->
-
-<hr class="wp-block-separator">
-
-<div style="text-align:center;">
-
-<a style="margin-right:10px;" href="https://www.behance.net/patriciacelan">
-<img title="Behance" alt="Behance" src="https://patriciacelan.com/images/Behance.jpg" width="25" height="25"></a>
-
-<a style="margin-right:10px;" href="https://www.youtube.com/@patriciacelan">
-<img title="YouTube" alt="YouTube" src="https://patriciacelan.com/images/YouTube.JPG" width="25" height="25"></a>
-
-<a style="margin-right:10px;" href="https://www.pinterest.com/patriciacelan">
-<img title="Pinterest" alt="Pinterest" src="https://patriciacelan.com/images/Pinterest.JPG" width="25" height="25"></a>
-
-<a style="margin-right:10px;" href="https://twitter.com/patriciacelan">
-<img title="Twitter" alt="Twitter" src="https://patriciacelan.com/images/Twitter.JPG" width="25" height="25"></a>
-
-<a style="margin-right:10px;" href="https://www.linkedin.com/in/patricia-celan">
-<img title="LinkedIn" alt="LinkedIn" src="https://patriciacelan.com/images/LinkedIn.JPG" width="25" height="25"></a>
-
-<a style="margin-right:10px;" href="https://instagram.com/patriciacelan">
-<img title="Instagram" alt="Instagram" src="https://patriciacelan.com/images/Instagram.jpg" width="25" height="25"></a>
-
-<a style="margin-right:10px;" href="https://patriciacelan.tumblr.com">
-<img title="Tumblr" alt="Tumblr" src="https://patriciacelan.com/images/Tumblr.jpg" width="25" height="25"></a>
-
-<a style="margin-right:10px;" href="https://patriciacelan.deviantart.com">
-<img title="DeviantArt" alt="DeviantArt" src="https://patriciacelan.com/images/DeviantArt.jpg" width="25" height="25"></a>
-
-</div>
-
-<hr class="wp-block-separator">
-
-<p style="text-align:center;">
-<a href="https://PatriciaCelan.com/about">About</a> &#10038; <a href="https://PatriciaCelan.com/contact">Contact</a>
-</p>
-
 </article>
-<div style="text-align:center; font-size:9.8px; font-family:Lora,serif; color:#404040;">
-<span>Copyright &copy; Patricia Celan - All Rights Reserved.</span>
-</div>
+
+<div id="footer-container"></div>
+<script>
+  fetch('https://patriciacelan.com/assets/footer.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    });
+</script>
+
 </main>
 </div>
 </div>
