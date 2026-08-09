@@ -100,8 +100,15 @@ input, textarea, select {
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-/* Clears the fixed navbar injected by navbar.js */
-.entry-content { padding-top: 160px; }
+/* Clears the fixed navbar injected by navbar.js, and caps the
+   reading column at 739px — the same width as the "large" profile
+   photos, so text and images line up in the same column. */
+.entry-content {
+  padding-top: 160px;
+  max-width: 739px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* ---- Utility classes ----
    .spacer used to be redeclared with a <style> block on almost
@@ -155,7 +162,6 @@ input, textarea, select {
    so the page keeps its current centered-column look) ---- */
 @media screen and (min-width: 880px) {
   .site { width: 800px; }
-  .entry-content { width: 68%; margin-left: auto; margin-right: auto; }
 }
 @media screen and (min-width: 1120px) {
   .site { width: 992px; }
