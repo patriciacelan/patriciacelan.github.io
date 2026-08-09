@@ -132,6 +132,14 @@ input, textarea, select {
   line-height: 45px;
 }
 
+.page-subtitle {
+  margin: 0 0 20px;
+  text-align: center;
+  font-family: "Raleway", arial, sans-serif;
+  font-size: 20px;
+  color: #000;
+}
+
 /* ---- Utility classes ----
    .spacer used to be redeclared with a <style> block on almost
    every page — now it just lives here once. */
@@ -156,7 +164,7 @@ input, textarea, select {
 /* Full-width section dividers — width is set per-instance inline
    (style="width:100%"), this just gives them the same 1px look as
    every other <hr> on the site. */
-.styled-hr { border: 0; }
+.styled-hr { border: 0; margin-top: 1.75em; }
 
 /* Profile / section photos.
    These use the same 739px "large" size WordPress generated for them;
