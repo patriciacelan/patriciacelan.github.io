@@ -99,6 +99,14 @@ input, textarea, select {
 
 .site-branding { max-width: 70%; }
 
+/* Prevents margin-collapsing between the page's own content and
+   whatever gets fetched into this container. Without this, the
+   footer's top spacing can "escape" through the empty div and
+   merge unpredictably with the page's last divider — this makes
+   that impossible, so the gap above the footer is always exactly
+   the sum of what's declared below, on every page, no exceptions. */
+#footer-container { display: flow-root; }
+
 /* The visible logo + menu now live in navbar.html, so the
    original text title/description are kept for SEO/screen
    readers only and are visually hidden. */
