@@ -54,16 +54,23 @@ i, em, dfn, cite { font-style: italic; }
 
 /* ---- Links ----
    Folded in from the old per-page "jetpack-custom-fonts-css"
-   inline style block, which every page repeated individually. */
+   inline style block, which every page repeated individually.
+   The !important is intentional and load-bearing: navbar.css
+   defines its own .navbar-link color (#404040) and hover color
+   (#007bff blue) for its own component use, but the site-wide
+   convention everywhere else — nav included — is a uniform grey
+   link that just fades on hover. !important is what makes this
+   file win that fight regardless of navbar.css's more specific
+   selectors, exactly like the old inline block used to. */
 a {
-  color: #9a9a9a;
-  text-decoration: none;
-  border: none;
-  box-shadow: none;
+  color: #9a9a9a !important;
+  text-decoration: none !important;
+  border: none !important;
+  box-shadow: none !important;
   transition: opacity .2s ease;
 }
 a:hover, a:focus, a:active {
-  text-decoration: none;
+  text-decoration: none !important;
   opacity: .3;
 }
 
