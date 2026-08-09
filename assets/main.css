@@ -185,7 +185,7 @@ input, textarea, select {
    These use the same 739px "large" size WordPress generated for them;
    the explicit max-width here makes that size deterministic instead
    of leaning on the img's srcset/sizes attributes alone. */
-.wp-block-image { margin-bottom: 1em; }
+.wp-block-image { margin: 0; }
 .wp-block-image img { width: 100%; max-width: 739px; height: auto; }
 
 /* Simple responsive column layout (Wellness Education page) */
