@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="fonts-loading">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,25 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+<script>
+  window.__pageReady = { fonts: false, navbar: false, footer: false };
+  function __checkReady() {
+    var r = window.__pageReady;
+    if (r.fonts && r.navbar && r.footer) {
+      document.documentElement.classList.remove('fonts-loading');
+    }
+  }
+  (function () {
+    function markFonts() { window.__pageReady.fonts = true; __checkReady(); }
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(markFonts); }
+    else { markFonts(); }
+  })();
+  setTimeout(function () {
+    document.documentElement.classList.remove('fonts-loading');
+  }, 2000);
+</script>
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161946718-28"></script>
@@ -68,10 +86,13 @@
     .then(html => {
       document.getElementById('navbar-container').innerHTML = html;
       initNavbar();
-    });
+      window.__pageReady.navbar = true;
+      __checkReady();
+    })
+    .catch(() => { window.__pageReady.navbar = true; __checkReady(); });
 </script>
 
-<br /><div style="text-align:center; font-family: Sacramento, serif, system-ui; font-size: 48px; color: black; white-space: nowrap; line-height: 45px;">Advocacy</div>
+<h1 class="page-title">Advocacy</h1>
 
 <hr class="styled-hr" style="width:100%;">
 
@@ -160,7 +181,10 @@ After the rental fraudster's eviction, Patricia provided housing to <u><a href="
     .then(response => response.text())
     .then(html => {
       document.getElementById('footer-container').innerHTML = html;
-    });
+      window.__pageReady.footer = true;
+      __checkReady();
+    })
+    .catch(() => { window.__pageReady.footer = true; __checkReady(); });
 </script>
 
 </main>
