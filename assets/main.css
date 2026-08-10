@@ -6,7 +6,7 @@ html { -webkit-text-size-adjust: 100%; }
 /* Hides the page until the custom fonts are ready, replacing the old
    webfont.js "wf-loading" mechanism with ~10 lines of modern JS
    (see the inline script in each page's <head>) instead of a whole
-   vendor library. Fallss back to visible after 1s either way, so a
+   vendor library. Falls back to visible after 1s either way, so a
    slow/failed font load never leaves the page permanently blank. */
 html.fonts-loading { visibility: hidden; }
 
@@ -27,11 +27,28 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 img { max-width: 100%; height: auto; border: 0; }
 
 /* Responsive embeds (YouTube/Vimeo videos, the Contact page's Google
-   Form). Each iframe already has width/height attributes, which
-   browsers use to compute the correct intrinsic aspect ratio — so
-   this scales every embed proportionally on narrow screens without
-   needing a different rule per aspect ratio. */
-iframe { max-width: 100%; height: auto; }
+   Form). Each embed is wrapped in a div with an inline padding-bottom
+   percentage matching its real height/width ratio (e.g. 56.25% for a
+   16:9 video); the iframe is absolutely positioned to fill that
+   wrapper exactly. This is the classic, bulletproof responsive-embed
+   technique — unlike relying on the browser to auto-derive aspect
+   ratio from an iframe's width/height attributes (which isn't
+   reliable), this always renders at the correct proportions on any
+   screen size. */
+.responsive-embed {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+.responsive-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
 figure { margin: 1em 0; }
 
 hr {
@@ -220,7 +237,6 @@ td img { display: block; margin: 0 auto; }
    proportions on desktop, neither of which a table can do cleanly. */
 .charity-bc-row {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
   gap: 20px;
 }
