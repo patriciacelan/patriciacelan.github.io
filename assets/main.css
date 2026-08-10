@@ -6,7 +6,7 @@ html { -webkit-text-size-adjust: 100%; }
 /* Hides the page until the custom fonts are ready, replacing the old
    webfont.js "wf-loading" mechanism with ~10 lines of modern JS
    (see the inline script in each page's <head>) instead of a whole
-   vendor library. Fallss back to visible after 1s either way, so a
+   vendor library. Falls back to visible after 1s either way, so a
    slow/failed font load never leaves the page permanently blank. */
 html.fonts-loading { visibility: hidden; }
 
@@ -25,6 +25,13 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 }
 
 img { max-width: 100%; height: auto; border: 0; }
+
+/* Responsive embeds (YouTube/Vimeo videos, the Contact page's Google
+   Form). Each iframe already has width/height attributes, which
+   browsers use to compute the correct intrinsic aspect ratio — so
+   this scales every embed proportionally on narrow screens without
+   needing a different rule per aspect ratio. */
+iframe { max-width: 100%; height: auto; }
 figure { margin: 1em 0; }
 
 hr {
@@ -206,6 +213,33 @@ td img { display: block; margin: 0 auto; }
 @media (min-width: 600px) {
   .wp-block-column { flex-basis: 0; flex-grow: 1; }
   .wp-block-column:not(:first-child) { margin-left: 32px; }
+}
+
+/* Miss Charity BC section (Pageantry) — flexbox instead of a table so
+   it can reorder for mobile (image above text) as well as adjust
+   proportions on desktop, neither of which a table can do cleanly. */
+.charity-bc-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+}
+.charity-bc-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  order: 1;
+  text-align: left;
+}
+.charity-bc-image {
+  flex: 0 0 36.7%; /* ~10% larger than the original 33.3% column */
+  order: 2;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .charity-bc-row { flex-direction: column; }
+  .charity-bc-image { order: -1; flex-basis: 100%; }
+  .charity-bc-image img { max-width: 72% !important; margin-left: auto !important; margin-right: auto !important; }
+  .charity-bc-text { flex-basis: 100%; text-align: center; }
 }
 
 /* ---- Responsive site width (matches the original theme's breakpoints,
