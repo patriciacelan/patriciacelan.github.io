@@ -6,30 +6,67 @@
 <title>Dr. Patricia Celan</title>
 <meta name="description" content="Dr. Patricia Celan is a physician working in psychiatry.">
 
-<link rel="stylesheet" href="https://patriciacelan.com/assets/main.css?v=11">
-<link rel="stylesheet" href="https://patriciacelan.com/assets/navbar.css?v=11">
-<link rel="stylesheet" href="https://patriciacelan.com/assets/scrollbar.css?v=11">
+<link rel="stylesheet" href="https://patriciacelan.com/assets/main.css">
+<link rel="stylesheet" href="https://patriciacelan.com/assets/navbar.css">
+<link rel="stylesheet" href="https://patriciacelan.com/assets/scrollbar.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
 <script>
-  window.__pageReady = { fonts: false, navbar: false, footer: false };
+  window.__pageReady = { fonts: false, navbar: false, footer: false, images: false };
+  var __imagesChecked = false;
+
   function __checkReady() {
     var r = window.__pageReady;
-    if (r.fonts && r.navbar && r.footer) {
+    if (r.fonts && r.navbar && r.footer && r.images) {
       document.documentElement.classList.remove('fonts-loading');
     }
   }
+
+  function __checkImages() {
+    var imgs = document.querySelectorAll('img');
+    var remaining = 0;
+    function done() {
+      remaining--;
+      if (remaining <= 0) {
+        window.__pageReady.images = true;
+        __checkReady();
+      }
+    }
+    imgs.forEach(function (img) {
+      if (!img.complete) {
+        remaining++;
+        img.addEventListener('load', done);
+        img.addEventListener('error', done);
+      }
+    });
+    if (remaining === 0) {
+      window.__pageReady.images = true;
+      __checkReady();
+    }
+  }
+
+  function __maybeCheckImages() {
+    if (__imagesChecked) return;
+    if (!window.__pageReady.navbar || !window.__pageReady.footer) return;
+    __imagesChecked = true;
+    __checkImages();
+  }
+
   (function () {
     function markFonts() { window.__pageReady.fonts = true; __checkReady(); }
     if (document.fonts && document.fonts.ready) { document.fonts.ready.then(markFonts); }
     else { markFonts(); }
   })();
+
+  // Safety net: reveal the page after 8s no matter what, so a slow/failed
+  // font, fetch, or image can never leave a visitor stuck on the loading
+  // screen indefinitely.
   setTimeout(function () {
     document.documentElement.classList.remove('fonts-loading');
-  }, 2000);
+  }, 8000);
 </script>
 
 <!-- Google Analytics -->
@@ -71,6 +108,12 @@
 <meta name="msapplication-TileImage" content="https://patriciacelan.com/images/icon/ms-icon-144x144.png">
 </head>
 <body>
+<div id="loading-overlay">
+  <div class="loading-content">
+    <img src="https://patriciacelan.com/images/Logo%20-%20Personal%20-%20resized.jpg" alt="Loading" class="loading-logo" />
+    <p>Loading...</p>
+  </div>
+</div>
 <div class="site-wrapper">
 <div id="page" class="site">
 <div id="content">
@@ -79,17 +122,22 @@
 <div class="entry-content">
 
 <div id="navbar-container"></div>
-<script src="https://patriciacelan.com/assets/navbar.js?v=11"></script>
+<script src="https://patriciacelan.com/assets/navbar.js"></script>
 <script>
-  fetch('https://patriciacelan.com/assets/navbar.html?v=11')
+  fetch('https://patriciacelan.com/assets/navbar.html')
     .then(response => response.text())
     .then(html => {
       document.getElementById('navbar-container').innerHTML = html;
       initNavbar();
       window.__pageReady.navbar = true;
       __checkReady();
+      __maybeCheckImages();
     })
-    .catch(() => { window.__pageReady.navbar = true; __checkReady(); });
+    .catch(() => {
+      window.__pageReady.navbar = true;
+      __checkReady();
+      __maybeCheckImages();
+    });
 </script>
 
 <h1 class="page-title">Psychiatry</h1>
@@ -122,9 +170,7 @@ Dr. Patricia Celan approaches psychiatry through a trauma-informed, neurodiversi
 
 Her clinical philosophy centers on psychotherapy as the foundation of care, alongside support for optimizing physical health. When indicated, psychiatric medication or neurostimulation may be integrated as adjunctive tools, always with the goal of supporting meaningful progress. As a reflective professional, Dr. Celan ensures that each clinical decision is rooted in a strong sense of ethics, particularly her respect for patient autonomy. She emphasizes transparent and honest communication to foster an environment where patients and colleagues alike feel heard, supported, and empowered.<p><p>
 
-Looking ahead, Dr. Celan intends to lead a psychotherapy-focused clinic with an emphasis on trauma, anxiety, and mood disorders across both neurotypical and neurodivergent populations. The clinic will serve medical trainees and the broader public, combining structured therapeutic interventions with innovative, holistic supports such as group acroyoga and pet therapy &mdash; all within a framework of compassionate, personalized care.<p><p>
-
-While Dr. Celan has not yet established a clinic to accept psychiatric referrals, the resources below may offer helpful guidance as you continue your journey toward healing and self-understanding.
+Dr. Celan currently has a waitlist for her therapy work. Please contact her directly to inquire about the waitlist. In the meantime, the resources below may offer helpful guidance as you continue your journey toward healing and self-understanding.
 </font><br/>
 
 <p><p>
@@ -169,7 +215,7 @@ While Dr. Celan has not yet established a clinic to accept psychiatric referrals
 <a href="https://www.bbc.co.uk/iplayer/episode/m001k31t/christine-mcguinness-unmasking-my-autism">Unmasking Autism</a><br/>
 <a href="https://www.youtube.com/results?search_query=autism+ted+talk">Autism TED Talks</a><br/>
 <a href="https://www.ucd.ie/chas/about/committees/neurodiversity/neurodiversityandmentalhealth/">Neurodiversity Conference Recordings</a><br/>
-<a href="https://www.ucd.ie/chas/about/committees/neurodiversity/neurodiversityandmentalhealth/">But You Do Not Look Autistic! UCLA Grand Rounds</a><br/>
+<a href="https://www.ucd.ie/chas/about/committees/neurodiversity/neurodiversityandmentalhealth/">But You Do Not Look Autistic! UCLA Grand Rounds</a>
 <div class="responsive-embed" style="padding-bottom:56.25%;"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZQVwobHnaEc?si=u-U5ozY2vQUJwA9b&amp;start=93" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
 
 <p><p>
@@ -196,14 +242,19 @@ While Dr. Celan has not yet established a clinic to accept psychiatric referrals
 
 <div id="footer-container"></div>
 <script>
-  fetch('https://patriciacelan.com/assets/footer.html?v=11')
+  fetch('https://patriciacelan.com/assets/footer.html')
     .then(response => response.text())
     .then(html => {
       document.getElementById('footer-container').innerHTML = html;
       window.__pageReady.footer = true;
       __checkReady();
+      __maybeCheckImages();
     })
-    .catch(() => { window.__pageReady.footer = true; __checkReady(); });
+    .catch(() => {
+      window.__pageReady.footer = true;
+      __checkReady();
+      __maybeCheckImages();
+    });
 </script>
 
 </main>
