@@ -6,8 +6,8 @@
 <title>Dr. Patricia Celan</title>
 <meta name="description" content="Dr. Patricia Celan is a physician with a background in psychology and postgraduate training in psychiatry. She's also a multidisciplinary artist, passionate advocate for meaningful causes, and a former international pageant titleholder.">
 
-<link rel="stylesheet" href="https://patriciacelan.com/assets/main.css?v=6">
-<link rel="stylesheet" href="https://patriciacelan.com/assets/scrollbar.css?v=6">
+<link rel="stylesheet" href="https://patriciacelan.com/assets/main.css">
+<link rel="stylesheet" href="https://patriciacelan.com/assets/scrollbar.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
@@ -15,10 +15,33 @@
 
 <script>
   (function () {
+    var ready = { fonts: false, images: false };
     function reveal() { document.documentElement.classList.remove('fonts-loading'); }
-    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(reveal); }
-    else { reveal(); }
-    setTimeout(reveal, 2000);
+    function check() { if (ready.fonts && ready.images) reveal(); }
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () { ready.fonts = true; check(); });
+    } else {
+      ready.fonts = true;
+    }
+
+    var imgs = document.querySelectorAll('img');
+    var remaining = 0;
+    function imgDone() {
+      remaining--;
+      if (remaining <= 0) { ready.images = true; check(); }
+    }
+    imgs.forEach(function (img) {
+      if (!img.complete) {
+        remaining++;
+        img.addEventListener('load', imgDone);
+        img.addEventListener('error', imgDone);
+      }
+    });
+    if (remaining === 0) { ready.images = true; check(); }
+
+    // Safety net: reveal after 8s no matter what.
+    setTimeout(reveal, 8000);
   })();
 </script>
 
