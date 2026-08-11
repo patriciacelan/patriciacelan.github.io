@@ -11,7 +11,7 @@ html { -webkit-text-size-adjust: 100%; }
    the page while things settle, then fades out once everything,
    including images, has actually finished loading. This is what
    prevents the navbar links visibly shifting once the logo image's
-   real width is known. */
+   real width is known.. */
 html.fonts-loading { overflow: hidden; }
 
 #loading-overlay {
