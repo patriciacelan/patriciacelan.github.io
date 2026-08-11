@@ -3,12 +3,48 @@
 
 html { -webkit-text-size-adjust: 100%; }
 
-/* Hides the page until the custom fonts are ready, replacing the old
-   webfont.js "wf-loading" mechanism with ~10 lines of modern JS
-   (see the inline script in each page's <head>) instead of a whole
-   vendor library. Falls back to visible after 1s either way, so a
-   slow/failed font load never leaves the page permanently blank. */
-html.fonts-loading { visibility: hidden; }
+/* Loading overlay — shown while fonts, the navbar/footer fetches,
+   and every image on the page are still loading (see the readiness
+   script in each page's <head> and the #loading-overlay markup
+   right after <body>). Replaces the old approach of hiding the
+   whole page via visibility:hidden — now the overlay itself covers
+   the page while things settle, then fades out once everything,
+   including images, has actually finished loading. This is what
+   prevents the navbar links visibly shifting once the logo image's
+   real width is known. */
+html.fonts-loading { overflow: hidden; }
+
+#loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .3s ease, visibility 0s linear 0s;
+}
+html:not(.fonts-loading) #loading-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility 0s linear .3s;
+}
+.loading-content { text-align: center; }
+.loading-logo {
+  display: block;
+  max-width: 150px;
+  width: 60%;
+  height: auto;
+  margin: 0 auto 16px;
+}
+#loading-overlay p {
+  font-family: "Lora", serif;
+  color: #404040;
+  font-size: 14px;
+  margin: 0;
+}
 
 body {
   margin: 0;
